@@ -1,19 +1,10 @@
 ﻿#pragma strict
-<<<<<<< HEAD
-/*
-var color1 : Color32;
-var childs : float;
-=======
-
->>>>>>> d96518eb2bfc08508d1dcced0dd849679a6fc1b0
 
 public var floorSprite : Sprite;
 public var colorParent : Transform;
 public var floorColors : Color32;
 
 private var floorGameObject : GameObject[];
-
-
 
 function Start () {
 
@@ -44,4 +35,4 @@ function Start () {
 function Update() {
 
 
-} */ 
+}
