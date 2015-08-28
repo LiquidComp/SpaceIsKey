@@ -2,7 +2,7 @@
 
 var speed : float;
 var jumpSpeed : float;
-private var x = -10.0;
+private var x = -2.0;
 public var theObject : GameObject;
 private var done = false;
 private var go = false;
@@ -25,22 +25,22 @@ if(theObject.transform.localPosition.y == 0 && Input.GetKey("a")) {
 }
 
 if(done) {
-x += 0.25f;
+x += 0.1f;
 Debug.Log("Done");
 }
 
 //if(go == true) {
-theObject.transform.localPosition.y = -Mathf.Pow(x, 2) + 100; 
+theObject.transform.localPosition.y = -Mathf.Pow(x, 2) + 4; 
 //}
 }
 
 function LateUpdate(){
-if(done == true && theObject.transform.localPosition.y ==0){
+if(done == true && theObject.transform.localPosition.y <=0){
 go = false;
 done = false;
-x = -10.0;
+x = -2.0;
 Debug.Log("go");
-
+theObject.transform.localPosition.y = 0;
 }
 }
 

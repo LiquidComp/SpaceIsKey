@@ -1,7 +1,7 @@
 ﻿#pragma strict
-
+/*
 var color1 : Color32;
-var childs : SpriteRenderer[];
+var childs : float;
 
 function Start () {
 childs = GetComponentInChildren(SpriteRenderer);
@@ -18,4 +18,4 @@ for(int i = 0; i < childs.Length; i++){
 
 function Update () {
 
-}
+} */ 
