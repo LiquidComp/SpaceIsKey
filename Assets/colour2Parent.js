@@ -1,15 +1,17 @@
 ﻿#pragma strict
 
-public var floorSprite : Sprite;
-public var colorParent : Transform;
 public var floorColors : Color32;
 
-private var floorGameObject : GameObject[];
+/*
+public var colorParent : Transform;
+public var floorSprite : Sprite;
 
+private var floorGameObject : GameObject[];
+*/
 
 
 function Start () {
-
+/*
 	floorGameObject = new GameObject[1];
 		
 	for (var i = 0; i < floorGameObject.Length; i++) {
@@ -26,7 +28,11 @@ function Start () {
 			go.transform.tag = "floor";
          	floorGameObject[i] = go;
 		}
-		
+		*/
+var allChildren = gameObject.GetComponentsInChildren(Transform);
+for (var child : Transform in allChildren) {
+   		child.GetComponent.<Renderer>().material.color = floorColors;
+	}
 }
 
 function Update () {
