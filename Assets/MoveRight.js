@@ -5,11 +5,13 @@ var jumpSpeed : float;
 private var x = -2.0;
 public var theObject : GameObject;
 private var done = false;
+private var particles : GameObject;
 private var go = false;
 public var startY : float;
 public var startX = -15.5;
 
 function Start () {
+	particles = GameObject.Find("deathParticle");
 }
 
 function Update () {
@@ -26,7 +28,11 @@ if(theObject.transform.localPosition.y == startY && Input.GetKey("a")) {
 if(done) {
 	x += jumpSpeed;
 }
+<<<<<<< HEAD
 	 theObject.transform.localPosition.y = startY+0.5*-Mathf.Pow(x,  Mathf.Sqrt(4)) +  2; 
+=======
+	 theObject.transform.localPosition.y = startY+-Mathf.Pow(x, 2) + 4;
+>>>>>>> 4e31ec3f7f432085fec24b0522d7de18ac0e2702
 }
 
 function LateUpdate(){
@@ -48,6 +54,8 @@ function OnCollisionEnter2D(coll: Collision2D) {
 		 transform.localRotation.z = 0;
 		 }
 	if (coll.gameObject.tag == "obstacle"){
+		 var particleVector : Vector3 = transform.localPosition;
+		 var newParticles = Instantiate(particles, particleVector, transform.rotation);
 		 transform.localPosition.x = startX;
 		 transform.localRotation.z = 0;
 		 }
