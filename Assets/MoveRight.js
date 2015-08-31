@@ -1,6 +1,6 @@
 #pragma strict
 
-var speed : float;
+var speed = 5.0;
 var jumpSpeed : float;
 private var x = -2.0;
 public var theObject : GameObject;
@@ -26,7 +26,7 @@ if(theObject.transform.localPosition.y == startY && Input.GetKey("a")) {
 if(done) {
 	x += jumpSpeed;
 }
-	 theObject.transform.localPosition.y = startY+-Mathf.Pow(x, 2) + 4; 
+	 theObject.transform.localPosition.y = startY+0.5*-Mathf.Pow(x,  Mathf.Sqrt(4)) +  2; 
 }
 
 function LateUpdate(){
