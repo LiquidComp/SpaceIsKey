@@ -18,18 +18,15 @@ transform.Translate(Vector3.right * speed * Time.deltaTime);
 
 
 if(theObject.transform.localPosition.y == startY && Input.GetKey("a")) {
- var go = true;
- done = true;
+	var go = true;
+	done = true;
 
 }
 
 if(done) {
-x += jumpSpeed;;
+	x += jumpSpeed;
 }
-
-//if(go == true) {
-theObject.transform.localPosition.y = startY+-Mathf.Pow(x, 2) + 4; 
-//}
+	 theObject.transform.localPosition.y = startY+-Mathf.Pow(x, 2) + 4; 
 }
 
 function LateUpdate(){
