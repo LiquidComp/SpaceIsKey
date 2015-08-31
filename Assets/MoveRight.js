@@ -7,11 +7,13 @@ public var theObject : GameObject;
 private var done = false;
 private var go = false;
 public var startY : float;
-public var startX = -15.5;
+public var startX : float ;
 private var particles : GameObject;
 
 function Start () {
 	particles = GameObject.Find("deathParticle");
+	transform.localPosition.x = startX;
+	transform.localPosition.y = startY;
 }
 
 function Update () {
@@ -46,13 +48,22 @@ function OnCollisionEnter2D(coll: Collision2D) {
 		 speed = -speed;
 		 startY = -1.434;
 		 startX = 17.6;
-		 transform.localPosition.x = 17.6;
+		 transform.localPosition.x = startX;
+		 transform.localRotation.z = 0;
+		 }
+		if (coll.gameObject.tag == "Finish2"){
+		Debug.Log("done");
+		 speed = -speed;
+		 startY = -4.67;
+		 startX = -13.8;
+		 transform.localPosition.x = startX;
 		 transform.localRotation.z = 0;
 		 }
 	if (coll.gameObject.tag == "obstacle"){
 		 var particleVector : Vector3 = transform.localPosition;
 		 var newParticles = Instantiate(particles, particleVector, transform.rotation);
 		 transform.localPosition.x = startX;
+		 transform.localPosition.y = startY;
 		 transform.localRotation.z = 0;
 		 }
 }
