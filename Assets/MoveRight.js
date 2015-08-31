@@ -8,8 +8,10 @@ private var done = false;
 private var go = false;
 public var startY : float;
 public var startX = -15.5;
+private var particles : GameObject;
 
 function Start () {
+	particles = GameObject.Find("deathParticle");
 }
 
 function Update () {
@@ -48,6 +50,8 @@ function OnCollisionEnter2D(coll: Collision2D) {
 		 transform.localRotation.z = 0;
 		 }
 	if (coll.gameObject.tag == "obstacle"){
+		 var particleVector : Vector3 = transform.localPosition;
+		 var newParticles = Instantiate(particles, particleVector, transform.rotation);
 		 transform.localPosition.x = startX;
 		 transform.localRotation.z = 0;
 		 }
