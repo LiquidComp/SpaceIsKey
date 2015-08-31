@@ -10,6 +10,7 @@ function Start() {
 }
 
 function OnCollisionEnter2D(coll: Collision2D) {
+<<<<<<< HEAD
 	if (coll.gameObject.tag == "obstacle") {
 		 var particleVector : Vector3 = transform.localPosition;
 		 var newParticles = Instantiate(particles, particleVector, transform.rotation);
@@ -20,4 +21,7 @@ function OnCollisionEnter2D(coll: Collision2D) {
              Destroy(newParticles);
          }
 	*/}
+=======
+
+>>>>>>> a64de491acb9aa60773ad361758ca2aaaba89aa9
 }
