@@ -7,12 +7,12 @@ public var theObject : GameObject;
 private var done = false;
 private var go = false;
 public var startY : float;
+public var startX = -15.5;
 
 function Start () {
 }
 
 function Update () {
-var nx = theObject.transform.localPosition.x; 
 transform.Translate(Vector3.right * speed * Time.deltaTime);
 
 
@@ -38,3 +38,17 @@ theObject.transform.localPosition.y = startY;
 }
 }
 
+function OnCollisionEnter2D(coll: Collision2D) {
+	if (coll.gameObject.tag == "Finish"){
+		Debug.Log("done");
+		 speed = -speed;
+		 startY = -1.434;
+		 startX = 17.6;
+		 transform.localPosition.x = 17.6;
+		 transform.localRotation.z = 0;
+		 }
+	if (coll.gameObject.tag == "obstacle"){
+		 transform.localPosition.x = startX;
+		 transform.localRotation.z = 0;
+		 }
+}
