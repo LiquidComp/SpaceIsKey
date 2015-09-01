@@ -20,10 +20,12 @@ function Update () {
 transform.Translate(Vector3.right * speed * Time.deltaTime);
 
 
+if(theObject.transform.localPosition.y == startY) {
 
-if(theObject.transform.localPosition.y == startY && Input.GetKey("a")) {
+	if(Input.GetKey("a") || Input.touches.Length > 0){
 	var go = true;
 	done = true;
+	}
 
 }
 
@@ -52,7 +54,6 @@ function OnCollisionEnter2D(coll: Collision2D) {
 		 transform.localRotation.z = 0;
 		 }
 		if (coll.gameObject.tag == "Finish2"){
-		Debug.Log("done");
 		 speed = -speed;
 		 startY = -4.67;
 		 startX = -13.8;
