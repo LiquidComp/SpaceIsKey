@@ -9,6 +9,8 @@ private var go = false;
 public var startY : float;
 public var startX : float ;
 private var particles : GameObject;
+private var Deaths : int;
+public var myDisplay : Rect; 
 
 function Start () {
 	particles = GameObject.Find("deathParticle");
@@ -48,9 +50,10 @@ function OnCollisionEnter2D(coll: Collision2D) {
 	if (coll.gameObject.tag == "Finish"){
 		Debug.Log("done");
 		 speed = -speed;
-		 startY = -1.434;
-		 startX = 17.6;
+		 startY = -1.44;
+		 startX = 14.4;
 		 transform.localPosition.x = startX;
+		 transform.localPosition.y = startY;
 		 transform.localRotation.z = 0;
 		 }
 		if (coll.gameObject.tag == "Finish2"){
@@ -66,5 +69,10 @@ function OnCollisionEnter2D(coll: Collision2D) {
 		 transform.localPosition.x = startX;
 		 transform.localPosition.y = startY;
 		 transform.localRotation.z = 0;
+		 Deaths += 1;
 		 }
+}
+
+function OnGUI () {
+	  GUI.Label( Rect (10, 10, 100, 20), "Deaths: " + Deaths);
 }
