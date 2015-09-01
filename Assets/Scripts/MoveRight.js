@@ -10,17 +10,24 @@ public var startY : float;
 public var startX : float ;
 private var particles : GameObject;
 private var Deaths : int;
-public var myDisplay : Rect; 
+public var myDisplay : Rect;
+private var colorCounter = false;
+public var bottomAndTopColour : Color32;
+public var middleColour : Color32;
 
 function Start () {
 	particles = GameObject.Find("deathParticle");
 	transform.localPosition.x = startX;
 	transform.localPosition.y = startY;
+	var allChildren = gameObject.GetComponentsInChildren(Transform);
+	for (var child : Transform in allChildren) {
+		child.GetComponent.<Renderer>().material.color = bottomAndTopColour;	
+	
+	}
 }
 
 function Update () {
 transform.Translate(Vector3.right * speed * Time.deltaTime);
-
 
 if(theObject.transform.localPosition.y == startY) {
 
@@ -46,22 +53,38 @@ theObject.transform.localPosition.y = startY;
 }
 }
 
+function changeColor() {
+	var allChildren = gameObject.GetComponentsInChildren(Transform);
+	for (var child : Transform in allChildren) {
+		if(colorCounter == false){
+			child.GetComponent.<Renderer>().material.color = bottomAndTopColour;	
+		}else{
+			child.GetComponent.<Renderer>().material.color = middleColour;	
+		}
+	}
+
+}
+
 function OnCollisionEnter2D(coll: Collision2D) {
 	if (coll.gameObject.tag == "Finish"){
-		Debug.Log("done");
 		 speed = -speed;
 		 startY = -1.44;
 		 startX = 14.4;
 		 transform.localPosition.x = startX;
 		 transform.localPosition.y = startY;
 		 transform.localRotation.z = 0;
-		 }
-		if (coll.gameObject.tag == "Finish2"){
-		 speed = -speed;
-		 startY = -4.67;
-		 startX = -13.8;
-		 transform.localPosition.x = startX;
-		 transform.localRotation.z = 0;
+		 colorCounter = true;
+		 changeColor();
+	}
+		 
+	if (coll.gameObject.tag == "Finish2"){
+		speed = -speed;
+		startY = -4.67;
+		startX = -13.8;
+		transform.localPosition.x = startX;
+		transform.localRotation.z = 0;
+		colorCounter = false;
+		changeColor();
 		 }
 	if (coll.gameObject.tag == "obstacle"){
 		 var particleVector : Vector3 = transform.localPosition;
@@ -72,6 +95,7 @@ function OnCollisionEnter2D(coll: Collision2D) {
 		 Deaths += 1;
 		 }
 }
+
 
 function OnGUI () {
 	  GUI.Label( Rect (10, 10, 100, 20), "Deaths: " + Deaths);
