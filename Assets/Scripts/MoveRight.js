@@ -34,7 +34,7 @@ if(theObject.transform.localPosition.y == startY) {
 if(done) {
 	x += jumpSpeed;
 }
-	 theObject.transform.localPosition.y = startY+0.5*-Mathf.Pow(x,  Mathf.Sqrt(4)) +  2; 
+	 theObject.transform.localPosition.y = startY+0.5*-Mathf.Pow(x,  Mathf.Sqrt(4)) +  2;
 }
 
 function LateUpdate(){
@@ -61,6 +61,7 @@ function OnCollisionEnter2D(coll: Collision2D) {
 		 startY = -4.67;
 		 startX = -13.8;
 		 transform.localPosition.x = startX;
+		 transform.localPosition.y = startY;
 		 transform.localRotation.z = 0;
 		 }
 	if (coll.gameObject.tag == "obstacle"){
