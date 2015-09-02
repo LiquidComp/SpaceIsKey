@@ -73,7 +73,8 @@ function OnCollisionEnter2D(coll: Collision2D) {
 		 transform.localPosition.x = startX;
 		 transform.localPosition.y = startY;
 		 transform.localRotation.z = 0;
-<<<<<<< HEAD
+		 colorCounter = true;
+		 changeColor();
 		 }
 		if (coll.gameObject.tag == "Finish2"){
 		 speed = -speed;
@@ -82,21 +83,10 @@ function OnCollisionEnter2D(coll: Collision2D) {
 		 transform.localPosition.x = startX;
 		 transform.localPosition.y = startY;
 		 transform.localRotation.z = 0;
-=======
-		 colorCounter = true;
+		 colorCounter = false;
 		 changeColor();
 	}
-		 
-	if (coll.gameObject.tag == "Finish2"){
-		speed = -speed;
-		startY = -4.67;
-		startX = -13.8;
-		transform.localPosition.x = startX;
-		transform.localRotation.z = 0;
-		colorCounter = false;
-		changeColor();
->>>>>>> 96056f371c803231e52467a4ed0934b31cdf14de
-		 }
+	
 	if (coll.gameObject.tag == "obstacle"){
 		 var particleVector : Vector3 = transform.localPosition;
 		 var newParticles = Instantiate(particles, particleVector, transform.rotation);
