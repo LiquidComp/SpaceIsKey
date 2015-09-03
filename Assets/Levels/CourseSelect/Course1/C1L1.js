@@ -1,5 +1,5 @@
 ﻿#pragma strict
 
 function OnMouseDown(){
-     Application.LoadLevel("howToPlay");
+     Application.LoadLevel("C1L1");
  }

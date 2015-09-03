@@ -1,5 +1,5 @@
 ﻿#pragma strict
 
  function OnMouseDown(){
-     Application.Quit();
+     Application.LoadLevel("CourseSelect");
  }
