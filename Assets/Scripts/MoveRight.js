@@ -14,6 +14,7 @@ public var myDisplay : Rect;
 private var colorCounter = false;
 public var bottomAndTopColour : Color32;
 public var middleColour : Color32;
+public var colour1 : GameObject; 
 
 function Start () {
 	particles = GameObject.Find("deathParticle");
@@ -99,5 +100,5 @@ function OnCollisionEnter2D(coll: Collision2D) {
 
 
 function OnGUI () {
-	  GUI.Label( Rect (10, 10, 100, 20), "Deaths: " + Deaths);
+	  GUI.Label(Rect(10,10,100,20),"<color=green><size=40>" + Deaths + "</size></color>");
 }
