@@ -12,6 +12,7 @@ private var particles : GameObject;
 private var Deaths : int;
 public var myDisplay : Rect;
 private var colorCounter = false;
+private var startGame : boolean = false;
 public var bottomAndTopColour : Color32;
 public var middleColour : Color32;
 public var colour1 : GameObject; 
@@ -23,11 +24,14 @@ function Start () {
 	var allChildren = gameObject.GetComponentsInChildren(Transform);
 	for (var child : Transform in allChildren) {
 		child.GetComponent.<Renderer>().material.color = bottomAndTopColour;	
-	
 	}
 }
 
 function Update () {
+if((Input.GetKey("a") || Input.touches.Length > 0) && startGame == false){
+startGame = true;
+}
+if(startGame == true){
 transform.Translate(Vector3.right * speed * Time.deltaTime);
 
 if(theObject.transform.localPosition.y == startY) {
@@ -44,7 +48,7 @@ if(done) {
 }
 	 theObject.transform.localPosition.y = startY+0.5*-Mathf.Pow(x,  Mathf.Sqrt(4)) +  2;
 }
-
+}
 function LateUpdate(){
 if(done == true && theObject.transform.localPosition.y <= startY){
 go = false;
@@ -70,7 +74,7 @@ function OnCollisionEnter2D(coll: Collision2D) {
 	if (coll.gameObject.tag == "Finish"){
 		 speed = -speed;
 		 startY = -1.44;
-		 startX = 14.4;
+		 startX = 8.56;
 		 transform.localPosition.x = startX;
 		 transform.localPosition.y = startY;
 		 transform.localRotation.z = 0;
@@ -80,7 +84,7 @@ function OnCollisionEnter2D(coll: Collision2D) {
 		if (coll.gameObject.tag == "Finish2"){
 		 speed = -speed;
 		 startY = -4.67;
-		 startX = -13.8;
+		 startX = -8.56;
 		 transform.localPosition.x = startX;
 		 transform.localPosition.y = startY;
 		 transform.localRotation.z = 0;
@@ -101,4 +105,5 @@ function OnCollisionEnter2D(coll: Collision2D) {
 
 function OnGUI () {
 	  GUI.Label(Rect(10,10,100,20),"<color=green><size=40>" + Deaths + "</size></color>");
+//	  GUI.Label(Rect())
 }
