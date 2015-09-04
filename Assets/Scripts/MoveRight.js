@@ -105,5 +105,5 @@ function OnCollisionEnter2D(coll: Collision2D) {
 
 function OnGUI () {
 	  GUI.Label(Rect(10,10,100,20),"<color=green><size=40>" + Deaths + "</size></color>");
-//	  GUI.Label(Rect())
+	  GUI.Label(Rect(300,400,300,400),"Touch the screen to start");
 }
