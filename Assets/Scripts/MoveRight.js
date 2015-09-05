@@ -15,9 +15,12 @@ private var colorCounter = false;
 private var startGame : boolean = false;
 public var bottomAndTopColour : Color32;
 public var middleColour : Color32;
-public var colour1 : GameObject; 
+var style : GUIStyle;
+var style2 : GUIStyle;
 
 function Start () {
+	style.normal.textColor = middleColour;
+	style2.normal.textColor = bottomAndTopColour;
 	particles = GameObject.Find("deathParticle");
 	transform.localPosition.x = startX;
 	transform.localPosition.y = startY;
@@ -104,6 +107,8 @@ function OnCollisionEnter2D(coll: Collision2D) {
 
 
 function OnGUI () {
-	  GUI.Label(Rect(10,10,100,20),"<color=green><size=40>" + Deaths + "</size></color>");
-	  GUI.Label(Rect(300,400,300,400),"Touch the screen to start");
+	  GUI.Label(Rect(10,10,100,200),"<size=20>" + Deaths + "</size>",style2);
+	  if(startGame == false){
+	  GUI.Label(Rect(Screen.width/2-215, Screen.height/2-25, 250, 500),"<size=40>Touch the screen to start</size>",style);
+	  }
 }
