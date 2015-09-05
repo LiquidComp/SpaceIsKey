@@ -1,5 +1,16 @@
 ﻿#pragma strict
 
+private var mouseDown : boolean = false;
+
 function OnMouseDown(){
-     Application.LoadLevel("howToPlay");
- }
+     if(mouseDown == false){
+     	Application.LoadLevel("howToPlay");
+     	mouseDown = true;
+ 	 }
+}
+
+function OnMouseUp(){
+	if(mouseDown == true){
+		mouseDown = false;
+	}
+}
