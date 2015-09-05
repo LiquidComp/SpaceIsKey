@@ -1,5 +1,16 @@
 ﻿#pragma strict
 
+private var mouseDown : boolean = false;
+
 function OnMouseDown(){
-     Application.LoadLevel("C1L1");
- }
+     if(mouseDown == false){
+   		Application.LoadLevel("C1L1");
+     	mouseDown = true;
+ 	 }
+}
+
+function OnMouseUp(){
+	if(mouseDown == true){
+		mouseDown = false;
+	}
+}
