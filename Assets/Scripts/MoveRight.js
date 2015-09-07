@@ -12,13 +12,17 @@ private var particles : GameObject;
 private var Deaths : int;
 public var myDisplay : Rect;
 private var colorCounter = false;
-private var startGame : boolean = false;
+private var startGame = false;
 public var bottomAndTopColour : Color32;
 public var middleColour : Color32;
 var style : GUIStyle;
 var style2 : GUIStyle;
+public var text1 : GameObject;
+public var text2 : GameObject;
+public var text3 : GameObject;
 
 function Start () {
+	startGame = false;
 	style.normal.textColor = middleColour;
 	style2.normal.textColor = bottomAndTopColour;
 	particles = GameObject.Find("deathParticle");
@@ -83,6 +87,9 @@ function OnCollisionEnter2D(coll: Collision2D) {
 		 transform.localRotation.z = 0;
 		 colorCounter = true;
 		 changeColor();
+		 text1.SetActive(false);
+		 text2.SetActive(true);
+		 
 		 }
 		if (coll.gameObject.tag == "Finish2"){
 		 speed = -speed;
@@ -93,6 +100,8 @@ function OnCollisionEnter2D(coll: Collision2D) {
 		 transform.localRotation.z = 0;
 		 colorCounter = false;
 		 changeColor();
+		 text2.SetActive(false);
+		 text3.SetActive(true);
 	}
 	
 	if (coll.gameObject.tag == "obstacle"){
