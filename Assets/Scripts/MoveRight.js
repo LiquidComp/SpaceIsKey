@@ -22,6 +22,9 @@ public var text2 : GameObject;
 public var text3 : GameObject;
 
 function Start () {
+	text1.SetActive(false);
+	text2.SetActive(false);
+	text3.SetActive(false);
 	startGame = false;
 	style.normal.textColor = middleColour;
 	style2.normal.textColor = bottomAndTopColour;
@@ -36,6 +39,7 @@ function Start () {
 
 function Update () {
 if((Input.GetKey("a") || Input.touches.Length > 0) && startGame == false){
+text1.SetActive(true);
 startGame = true;
 }
 if(startGame == true){
@@ -102,6 +106,9 @@ function OnCollisionEnter2D(coll: Collision2D) {
 		 changeColor();
 		 text2.SetActive(false);
 		 text3.SetActive(true);
+	}
+		if (coll.gameObject.tag == "Finish3"){
+		Application.LoadLevel("mainMenu");
 	}
 	
 	if (coll.gameObject.tag == "obstacle"){
