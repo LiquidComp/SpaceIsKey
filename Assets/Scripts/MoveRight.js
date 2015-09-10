@@ -51,7 +51,7 @@ if(theObject.transform.localPosition.y == startY) {
 	var go = true;
 	done = true;
 	}
-PlayerPrefs.Save();
+
 }
 
 if(done) {
@@ -79,6 +79,12 @@ function changeColor() {
 		}
 	}
 
+}
+function particleSpawn() {
+	var particleVector : Vector3 = transform.localPosition;
+	var newParticles = Instantiate(particles, particleVector, transform.rotation);
+	yield WaitForSeconds(0.60);
+	Destroy(newParticles);
 }
 
 function OnCollisionEnter2D(coll: Collision2D) {
@@ -112,19 +118,17 @@ function OnCollisionEnter2D(coll: Collision2D) {
 	}
 	
 	if (coll.gameObject.tag == "obstacle"){
-		 var particleVector : Vector3 = transform.localPosition;
-		 var newParticles = Instantiate(particles, particleVector, transform.rotation);
+		 particleSpawn();
 		 transform.localPosition.x = startX;
 		 transform.localPosition.y = startY;
 		 transform.localRotation.z = 0;
 		 Deaths +=1;
-		 PlayerPrefs.SetInt("PDeaths", Deaths);
 		 }
 }
 
 
 function OnGUI () {
-	  GUI.Label(Rect(10,10,100,200),"<size=20>" + PlayerPrefs.GetInt("PDeaths") + "</size>",style2);
+	  GUI.Label(Rect(10,10,100,200),"<size=20>" + Deaths + "</size>",style2);
 	  if(startGame == false){
 	  GUI.Label(Rect(Screen.width/2-215, Screen.height/2-25, 250, 500),"<size=40>Touch the screen to start</size>",style);
 	  }
