@@ -6,10 +6,12 @@ function Start () {
 }
 
 function Update () {
-
 myInt = Mathf.FloorToInt(player.transform.position.y);
-transform.Rotate(0.0f, 0.0f, myInt);
+myInt = myInt - 2.08;
+myInt = myInt * 45;
+Debug.Log(myInt);
+transform.eulerAngles = Vector3(0, 0, myInt);
 myInt = -myInt;
-transform.Rotate(0.0f, 0.0f, myInt);
+transform.eulerAngles = Vector3(0, 0, myInt);
 
 }
