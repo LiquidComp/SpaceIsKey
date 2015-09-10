@@ -93,6 +93,7 @@ function OnCollisionEnter2D(coll: Collision2D) {
 		 changeColor();
 		 text1.SetActive(false);
 		 text2.SetActive(true);
+		 GetComponent.<Rigidbody2D>().mass = 1;
 		 
 		 }
 		if (coll.gameObject.tag == "Finish2"){
@@ -106,6 +107,7 @@ function OnCollisionEnter2D(coll: Collision2D) {
 		 changeColor();
 		 text2.SetActive(false);
 		 text3.SetActive(true);
+		 GetComponent.<Rigidbody2D>().mass = 2;
 	}
 		if (coll.gameObject.tag == "Finish3"){
 		Application.LoadLevel("mainMenu");
