@@ -1,12 +1,12 @@
 ﻿#pragma strict
 public var player : GameObject;
-private var myInt : int;
+private var myInt : float;
 function Start () {
 
 }
 
 function Update () {
-myInt = Mathf.FloorToInt(player.transform.position.y);
+myInt = player.transform.position.y;
 myInt = myInt - 2.08;
 myInt = myInt * 45;
 Debug.Log(myInt);
