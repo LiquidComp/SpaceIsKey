@@ -1,4 +1,5 @@
 ﻿#pragma strict
+import UnityEngine.Advertisements;
 
 private var mouseDown : boolean = false;
 
