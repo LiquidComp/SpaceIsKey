@@ -53,7 +53,7 @@ if(rot2 == true && (rot3 == false && rot4 == false)){
 myInt = player.transform.position.y;
 myInt = myInt - startY;
 myInt = myInt * 45 + 270;
-Debug.Log(myInt);
+//Debug.Log(myInt);
 transform.eulerAngles = Vector3(0, 0, myInt);
 }
 
@@ -73,7 +73,7 @@ if(rot3 == true){
 myInt = player.transform.position.y;
 myInt = myInt - startY;
 myInt = myInt * 45;
-Debug.Log(myInt);
+//Debug.Log(myInt);
 transform.eulerAngles = Vector3(0, 0, myInt);
 }
 
@@ -81,7 +81,7 @@ if(rot4 == true){
 myInt = -player.transform.position.y;
 myInt = myInt + startY;
 myInt = myInt * 45 - 180;
-Debug.Log(myInt);
+//Debug.Log(myInt);
 transform.eulerAngles = Vector3(0, 0, myInt);
 }
 }
