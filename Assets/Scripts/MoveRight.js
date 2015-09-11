@@ -20,6 +20,7 @@ var style2 : GUIStyle;
 public var text1 : GameObject;
 public var text2 : GameObject;
 public var text3 : GameObject;
+private var keyDown : boolean;
 
 function Start () {
 	text1.SetActive(false);
@@ -38,16 +39,18 @@ function Start () {
 }
 
 function Update () {
-if((Input.GetKey("a") || Input.touches.Length > 0) && startGame == false){
+if(((Input.GetKey("space") || Input.GetKey("a")) || Input.touches.Length > 0) && startGame == false){
 text1.SetActive(true);
 startGame = true;
 }
+
 if(startGame == true){
 transform.Translate(Vector3.right * speed * Time.deltaTime);
 
 if(theObject.transform.localPosition.y == startY) {
 
-	if(Input.GetKey("a") || Input.touches.Length > 0){
+	if((Input.GetKey("space") || Input.GetKey("a")) || Input.touches.Length > 0){
+	keyDown = true;
 	var go = true;
 	done = true;
 	}
@@ -57,7 +60,9 @@ if(theObject.transform.localPosition.y == startY) {
 if(done) {
 	x += jumpSpeed;
 }
+if(keyDown == true){
 	 theObject.transform.localPosition.y = startY+0.5*-Mathf.Pow(x,  Mathf.Sqrt(4)) +  2;
+}
 }
 }
 function LateUpdate(){
@@ -90,8 +95,9 @@ function particleSpawn() {
 function OnCollisionEnter2D(coll: Collision2D) {
 	if (coll.gameObject.tag == "Finish"){
 		 speed = -speed;
+		 keyDown = false;
 		 startY = -1.44;
-		 startX = 8.56;
+		 startX = 8.6;
 		 transform.localPosition.x = startX;
 		 transform.localPosition.y = startY;
 		 transform.localRotation.z = 0;
@@ -104,8 +110,9 @@ function OnCollisionEnter2D(coll: Collision2D) {
 		 }
 		if (coll.gameObject.tag == "Finish2"){
 		 speed = -speed;
+		 keyDown = false;
 		 startY = -4.67;
-		 startX = -8.56;
+		 startX = -8.6;
 		 transform.localPosition.x = startX;
 		 transform.localPosition.y = startY;
 		 transform.localRotation.z = 0;
@@ -121,6 +128,7 @@ function OnCollisionEnter2D(coll: Collision2D) {
 	
 	if (coll.gameObject.tag == "obstacle"){
 		 particleSpawn();
+		 keyDown = false;
 		 transform.localPosition.x = startX;
 		 transform.localPosition.y = startY;
 		 transform.localRotation.z = 0;
