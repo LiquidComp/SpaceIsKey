@@ -39,39 +39,42 @@ function Start () {
 }
 
 function Update () {
-if(((Input.GetKey("space") || Input.GetKey("a")) || Input.touches.Length > 0) && startGame == false){
-text1.SetActive(true);
-startGame = true;
-}
-
-if(startGame == true){
-transform.Translate(Vector3.right * speed * Time.deltaTime);
-
-if(theObject.transform.localPosition.y == startY) {
-
-	if((Input.GetKey("space") || Input.GetKey("a")) || Input.touches.Length > 0){
-	keyDown = true;
-	var go = true;
-	done = true;
+	if(((Input.GetKey("space") || Input.GetKey("a")) || Input.touches.Length > 0) && startGame == false){
+		text1.SetActive(true);
+		startGame = true;
 	}
 
+	if(startGame == true){
+		transform.Translate(Vector3.right * speed * Time.deltaTime);
+
+	if(theObject.transform.localPosition.y == startY) {
+
+		if((Input.GetKey("space") || Input.GetKey("a")) || Input.touches.Length > 0){
+			keyDown = true;
+			var go = true;
+			done = true;
+		}
+
+	}
+
+	if(done) {
+		x += jumpSpeed;
+	}
+	
+	if(keyDown == true){
+		 theObject.transform.localPosition.y = startY+0.5*-Mathf.Pow(x,  Mathf.Sqrt(4)) +  2;
+	}
+	
+	}
 }
 
-if(done) {
-	x += jumpSpeed;
-}
-if(keyDown == true){
-	 theObject.transform.localPosition.y = startY+0.5*-Mathf.Pow(x,  Mathf.Sqrt(4)) +  2;
-}
-}
-}
 function LateUpdate(){
-if(done == true && theObject.transform.localPosition.y <= startY){
-go = false;
-done = false;
-x = -2.0;
-theObject.transform.localPosition.y = startY;
-}
+	if(done == true && theObject.transform.localPosition.y <= startY){
+		go = false;
+		done = false;
+		x = -2.0;
+		theObject.transform.localPosition.y = startY;
+	}
 }
 
 function changeColor() {
@@ -107,7 +110,7 @@ function OnCollisionEnter2D(coll: Collision2D) {
 		 text2.SetActive(true);
 		 GetComponent.<Rigidbody2D>().mass = 1;
 		 
-		 }
+	}
 		if (coll.gameObject.tag == "Finish2"){
 		 speed = -speed;
 		 keyDown = false;
@@ -140,6 +143,6 @@ function OnCollisionEnter2D(coll: Collision2D) {
 function OnGUI () {
 	  GUI.Label(Rect(10,10,100,200),"<size=20>" + Deaths + "</size>",style2);
 	  if(startGame == false){
-	  GUI.Label(Rect(Screen.width/2-215, Screen.height/2-25, 250, 500),"<size=40>Touch the screen to start</size>",style);
+	  	GUI.Label(Rect(Screen.width/2-215, Screen.height/2-25, 250, 500),"<size=40>Touch the screen to start</size>",style);
 	  }
 }

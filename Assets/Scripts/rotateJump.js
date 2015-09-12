@@ -56,7 +56,7 @@ function Update () {
 		transform.eulerAngles = Vector3(0, 0, myInt);
 	}
 
-<<<<<<< HEAD
+
 	if(rot2 == true && (rot3 == false && rot4 == false)){
 		myInt = player.transform.position.y;
 		myInt = myInt - startY;
@@ -64,15 +64,15 @@ function Update () {
 		//Debug.Log(myInt);
 		transform.eulerAngles = Vector3(0, 0, myInt);
 	}
-=======
-if(rot2 == true && (rot3 == false && rot4 == false)){
-myInt = player.transform.position.y;
-myInt = myInt - startY;
-myInt = myInt * 45 + 270;
-//Debug.Log(myInt);
-transform.eulerAngles = Vector3(0, 0, myInt);
-}
->>>>>>> 44bad795ebbe602495cf19cba2a976268bd0d4e9
+
+	if(rot2 == true && (rot3 == false && rot4 == false)){
+		myInt = player.transform.position.y;
+		myInt = myInt - startY;
+		myInt = myInt * 45 + 270;
+		//Debug.Log(myInt);
+		transform.eulerAngles = Vector3(0, 0, myInt);
+	}
+
 	if((myInt >= 89) && (rot3 == true || rot4 == true)) {
 		myInt = 90;
 		rot3 = false;
@@ -89,11 +89,11 @@ transform.eulerAngles = Vector3(0, 0, myInt);
 		myInt = player.transform.position.y;
 		myInt = myInt - startY;
 		myInt = myInt * 45;
-		Debug.Log(myInt);
+		//Debug.Log(myInt);
 		transform.eulerAngles = Vector3(0, 0, myInt);
 	}
 
-<<<<<<< HEAD
+
 	if(rot3 == true){
 		myInt = player.transform.position.y;
 		myInt = myInt - startY;
@@ -102,31 +102,14 @@ transform.eulerAngles = Vector3(0, 0, myInt);
 		transform.eulerAngles = Vector3(0, 0, myInt);
 	}
 
-=======
-if(rot3 == true){
-myInt = player.transform.position.y;
-myInt = myInt - startY;
-myInt = myInt * 45;
-//Debug.Log(myInt);
-transform.eulerAngles = Vector3(0, 0, myInt);
-}
 
-if(rot4 == true){
-myInt = -player.transform.position.y;
-myInt = myInt + startY;
-myInt = myInt * 45 - 180;
-//Debug.Log(myInt);
-transform.eulerAngles = Vector3(0, 0, myInt);
-}
->>>>>>> 44bad795ebbe602495cf19cba2a976268bd0d4e9
-	if(rot4 == true){
-		myInt = -player.transform.position.y;
-		myInt = myInt + startY;
-		myInt = myInt * 45 - 180;
+	if(rot3 == true){
+		myInt = player.transform.position.y;
+		myInt = myInt - startY;
+		myInt = myInt * 45;
 		//Debug.Log(myInt);
 		transform.eulerAngles = Vector3(0, 0, myInt);
 	}
-<<<<<<< HEAD
 
 	if(rot4 == true){
 		myInt = -player.transform.position.y;
@@ -136,6 +119,21 @@ transform.eulerAngles = Vector3(0, 0, myInt);
 		transform.eulerAngles = Vector3(0, 0, myInt);
 	}
 
-=======
->>>>>>> 44bad795ebbe602495cf19cba2a976268bd0d4e9
+	if(rot4 == true){
+		myInt = -player.transform.position.y;
+		myInt = myInt + startY;
+		myInt = myInt * 45 - 180;
+		//Debug.Log(myInt);
+		transform.eulerAngles = Vector3(0, 0, myInt);
+	}
+
+
+	if(rot4 == true){
+		myInt = -player.transform.position.y;
+		myInt = myInt + startY;
+		myInt = myInt * 45 - 180;
+		//Debug.Log(myInt);
+		transform.eulerAngles = Vector3(0, 0, myInt);
+	}
+
 }
