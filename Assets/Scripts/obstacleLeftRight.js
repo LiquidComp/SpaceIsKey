@@ -7,16 +7,16 @@ function Start () {
 }
 
 function Update () {
-	if(player2.GetComponent.<Rigidbody2D>().mass == 1){
-		//transform.Translate(Vector3.right * speed * Time.deltaTime);
-	}
-		
+	transform.Translate(Vector3.right * speed * Time.deltaTime);
+	transform.localRotation.z = 0;
+	player2.transform.localRotation.z = 0;
+	transform.localPosition.y = -1.4;
 }
 
 function OnCollisionEnter2D(coll: Collision2D) {
 	if (coll.gameObject.tag == "obstacleGoLeft"){
-		transform.Translate(Vector3.left * speed * Time.deltaTime);
+		speed = -speed;
 	}else if(coll.gameObject.tag == "obstacleGoRight"){
-		transform.Translate(Vector3.right * speed * Time.deltaTime);
+		speed = -speed;
 	}
 }
