@@ -7,7 +7,11 @@ private var startY : float;
 private var test : float;
 private var rot3 : boolean;
 private var rot4 : boolean;
-
+public var coll1 : boolean;
+public var coll2 : boolean;
+public var coll3 : boolean;
+public var coll4 : boolean;
+public var moveRightScript : MoveRight;
 
 function Start () {
 	startY = 2.08;
@@ -136,4 +140,28 @@ function Update () {
 		transform.eulerAngles = Vector3(0, 0, myInt);
 	}
 
+}
+
+function OnCollisionEnter2D(coll: Collision2D) {
+	if (coll.gameObject.tag == "Finish"){
+		coll1 = true;
+		yield WaitForEndOfFrame();
+		coll1 = false;
+	}
+		if (coll.gameObject.tag == "Finish2"){
+		coll2 = true;
+		yield WaitForEndOfFrame();
+		coll2 = false;
+	}
+		if (coll.gameObject.tag == "Finish3"){
+		coll3 = true;
+		yield WaitForEndOfFrame();
+		coll3 = false;
+	}
+	
+	if (coll.gameObject.tag == "obstacle"){
+		coll4 = true;
+		yield WaitForEndOfFrame();
+		coll4 = false;
+	}
 }
