@@ -21,6 +21,7 @@ public var text1 : GameObject;
 public var text2 : GameObject;
 public var text3 : GameObject;
 private var keyDown : boolean;
+public var rotateJumpScript : rotateJump;
 
 function Start () {
 	text1.SetActive(false);
@@ -66,6 +67,7 @@ function Update () {
 	}
 	
 	}
+	checkCollision();
 }
 
 function LateUpdate(){
@@ -95,15 +97,18 @@ function particleSpawn() {
 	Destroy(newParticles);
 }
 
-function OnCollisionEnter2D(coll: Collision2D) {
-	if (coll.gameObject.tag == "Finish"){
+
+function checkCollision() {
+	if (rotateJumpScript.coll1 == true){
 		 speed = -speed;
 		 keyDown = false;
 		 startY = -1.44;
 		 startX = 8.6;
-		 transform.localPosition.x = startX;
+	     transform.localPosition.x = startX;
 		 transform.localPosition.y = startY;
 		 transform.localRotation.z = 0;
+		 rotateJumpScript.transform.localPosition.x = 0;
+		 rotateJumpScript.transform.localPosition.y = 0;
 		 colorCounter = true;
 		 changeColor();
 		 text1.SetActive(false);
@@ -111,7 +116,7 @@ function OnCollisionEnter2D(coll: Collision2D) {
 		 GetComponent.<Rigidbody2D>().mass = 1;
 		 
 	}
-		if (coll.gameObject.tag == "Finish2"){
+	if (rotateJumpScript.coll2 == true){
 		 speed = -speed;
 		 keyDown = false;
 		 startY = -4.67;
@@ -119,22 +124,26 @@ function OnCollisionEnter2D(coll: Collision2D) {
 		 transform.localPosition.x = startX;
 		 transform.localPosition.y = startY;
 		 transform.localRotation.z = 0;
+		 rotateJumpScript.transform.localPosition.x = 0;
+		 rotateJumpScript.transform.localPosition.y = 0;
 		 colorCounter = false;
 		 changeColor();
 		 text2.SetActive(false);
 		 text3.SetActive(true);
 		 GetComponent.<Rigidbody2D>().mass = 2;
 	}
-		if (coll.gameObject.tag == "Finish3"){
+	if (rotateJumpScript.coll3 == true){
 		Application.LoadLevel("mainMenu");
 	}
 	
-	if (coll.gameObject.tag == "obstacle"){
+	if (rotateJumpScript.coll4 == true){
 		 particleSpawn();
 		 keyDown = false;
 		 transform.localPosition.x = startX;
 		 transform.localPosition.y = startY;
 		 transform.localRotation.z = 0;
+		 rotateJumpScript.transform.localPosition.x = 0;
+		 rotateJumpScript.transform.localPosition.y = 0;
 		 Deaths +=1;
 		 }
 }
