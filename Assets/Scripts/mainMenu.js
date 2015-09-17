@@ -17,6 +17,7 @@ public var bottomAndTopColour : Color32;
 public var middleColour : Color32;
 var style : GUIStyle;
 var style2 : GUIStyle;
+private var jumpNow : boolean = false;
 
 private var keyDown : boolean;
 
@@ -39,7 +40,7 @@ transform.Translate(Vector3.right * speed * Time.deltaTime);
 
 if(theObject.transform.localPosition.y == startY) {
 
-	if((Input.GetKey("space") || Input.GetKey("a")) || Input.touches.Length > 0){
+	if(jumpNow == true){
 	keyDown = true;
 	var go = true;
 	done = true;
@@ -59,6 +60,7 @@ function LateUpdate(){
 if(done == true && theObject.transform.localPosition.y <= startY){
 go = false;
 done = false;
+jumpNow = false;
 x = -2.0;
 theObject.transform.localPosition.y = startY;
 }
@@ -120,8 +122,15 @@ function OnCollisionEnter2D(coll: Collision2D) {
 		 transform.localRotation.z = 0;
 		 Deaths +=1;
 		 }
-}
 
+	if (coll.gameObject.tag == "Jump"){
+		jumpNow = true;
+		transform.localRotation.z = 0;
+		transform.localPosition.y = startY;
+		Debug.Log(jumpNow);
+		
+	}
+}
 
 function OnGUI () {
 	  //GUI.Label(Rect(10,10,100,200),"<size=20>" + Deaths + "</size>",style2);
