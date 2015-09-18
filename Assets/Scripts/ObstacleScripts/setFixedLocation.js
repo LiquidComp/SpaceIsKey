@@ -8,7 +8,6 @@ function Start () {
 }
 
 function Update () {
-	Debug.Log(startX);
 	transform.localPosition.x = startX;
 	transform.localPosition.y = startY;
 	transform.localRotation.z = RotZ;
