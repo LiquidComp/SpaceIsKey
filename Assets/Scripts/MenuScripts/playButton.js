@@ -3,7 +3,7 @@
 public var playButton : Sprite;
 public var playButton2 : Sprite;
 private var mouseIsDown : boolean;
-private var hitler : boolean;
+private var notOffScreen : boolean;
 
 function Update(){
 	if(mouseIsDown == true){
@@ -15,19 +15,18 @@ function Update(){
 }
 
 function OnMouseOver(){
-	hitler = true;
+	notOffScreen = true;
 }
 
 function OnMouseExit(){
-	hitler = false;
+	notOffScreen = false;
 }
 
 
 function OnMouseUp(){
 	mouseIsDown = false;
-	if(hitler == true){
-		Debug.Log("joden");
-				Application.LoadLevel("CourseSelect");
+	if(notOffScreen == true){
+		Application.LoadLevel("CourseSelect");
 	}
 }
 
