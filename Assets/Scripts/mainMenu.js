@@ -126,9 +126,7 @@ function OnCollisionEnter2D(coll: Collision2D) {
 	if (coll.gameObject.tag == "Jump"){
 		jumpNow = true;
 		transform.localRotation.z = 0;
-		transform.localPosition.y = startY;
-		Debug.Log(jumpNow);
-		
+		transform.localPosition.y = startY;		
 	}
 }
 
