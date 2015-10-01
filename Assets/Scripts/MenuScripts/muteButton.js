@@ -1,17 +1,17 @@
 ﻿#pragma strict
 
-public var volumeButton : Sprite;
-public var volumeButton2 : Sprite;
-public var muteButtonObject : GameObject;
+public var muteButton : Sprite;
+public var muteButton2 : Sprite;
+public var volumeButtonObject : GameObject;
 
 private var mouseIsDown : boolean;
 private var notOffScreen : boolean;
 
 function Update(){
 	if(mouseIsDown == true){
-		GetComponent(SpriteRenderer).sprite = volumeButton2;
+		GetComponent(SpriteRenderer).sprite = muteButton2;
 	}else if(mouseIsDown == false){
-		GetComponent(SpriteRenderer).sprite = volumeButton;
+		GetComponent(SpriteRenderer).sprite = muteButton;
 	}
 
 }
@@ -28,9 +28,9 @@ function OnMouseExit(){
 function OnMouseUp(){
 	mouseIsDown = false;
 	if(notOffScreen == true){
-		AudioListener.pause = true;
+		AudioListener.pause = false;
 		gameObject.SetActive(false);
-		muteButtonObject.gameObject.SetActive(true);
+		volumeButtonObject.gameObject.SetActive(true);
 	}
 }
 

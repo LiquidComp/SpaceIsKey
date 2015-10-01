@@ -23,8 +23,12 @@ public var text2 : GameObject;
 public var text3 : GameObject;
 private var keyDown : boolean;
 public var rotateJumpScript : rotateJump;
+public var colour1ParentScript : colour1Parent;
+public var colour2ParentScript : colour2Parent;
 
 function Start () {
+	middleColour = colour1ParentScript.floorColors;
+	bottomAndTopColour = colour2ParentScript.floorColors;
 	text1.SetActive(false);
 	text2.SetActive(false);
 	text3.SetActive(false);
