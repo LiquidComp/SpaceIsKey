@@ -50,7 +50,7 @@ function Update () {
 		text1.SetActive(true);
 		startGame2 = true;
 	}
-	if(startGame2 == true && Input.GetKeyUp("space")){
+	if(startGame2 == true && Input.GetKeyUp("space")|| Input.touches.Length > 0){
 		startGame = true;
 	}
 	if(startGame == true){
