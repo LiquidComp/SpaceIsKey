@@ -25,6 +25,8 @@ private var keyDown : boolean;
 public var rotateJumpScript : rotateJump;
 public var colour1ParentScript : colour1Parent;
 public var colour2ParentScript : colour2Parent;
+private var Touching : boolean;
+private var Release : boolean;
 
 function Start () {
 	middleColour = colour1ParentScript.floorColors;
@@ -46,11 +48,20 @@ function Start () {
 }
 
 function Update () {
-	if(((Input.GetKeyDown("space") || Input.GetKeyDown("a")) || Input.touches.Length > 0) && startGame == false){
+
+	if(Input.touches.Length > 0){
+		Touching = true;
+	}
+	if(Touching == true && Input.touches.Length == 0){
+		Release = true;
+		Touching = false;
+	}
+	
+	if(((Input.GetKeyDown("space") || Input.GetKeyDown("a")) || Release == true) && startGame == false){
 		text1.SetActive(true);
 		startGame2 = true;
 	}
-	if(startGame2 == true && Input.GetKeyUp("space")|| Input.touches.Length > 0){
+	if(startGame2 == true && Input.GetKeyUp("space")|| Release == true){
 		startGame = true;
 	}
 	if(startGame == true){
