@@ -4,8 +4,18 @@ public var volumeButton : Sprite;
 public var volumeButton2 : Sprite;
 public var muteButtonObject : GameObject;
 
+private var isMuteOn : int;
 private var mouseIsDown : boolean;
 private var notOffScreen : boolean;
+
+function Start(){
+	isMuteOn = PlayerPrefs.GetInt("muteOn");
+	if(isMuteOn == 1){
+		AudioListener.pause = true;
+		gameObject.SetActive(false);
+		muteButtonObject.gameObject.SetActive(true);
+	}
+}
 
 function Update(){
 	if(mouseIsDown == true){
@@ -28,6 +38,8 @@ function OnMouseExit(){
 function OnMouseUp(){
 	mouseIsDown = false;
 	if(notOffScreen == true){
+		PlayerPrefs.SetInt("muteOn", 1);
+		PlayerPrefs.Save();
 		AudioListener.pause = true;
 		gameObject.SetActive(false);
 		muteButtonObject.gameObject.SetActive(true);

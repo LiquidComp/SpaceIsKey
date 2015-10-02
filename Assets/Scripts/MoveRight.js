@@ -14,6 +14,7 @@ public var myDisplay : Rect;
 private var colorCounter = false;
 private var startGame = false;
 private var startGame2 = false;
+public var pauseGame = false;
 public var bottomAndTopColour : Color32;
 public var middleColour : Color32;
 var style : GUIStyle;
@@ -36,6 +37,7 @@ function Start () {
 	text3.SetActive(false);
 	startGame = false;
 	startGame2 = false;
+	pauseGame = false;
 	style.normal.textColor = middleColour;
 	style2.normal.textColor = bottomAndTopColour;
 	particles = GameObject.Find("deathParticle");
@@ -64,7 +66,7 @@ function Update () {
 	if(startGame2 == true && Input.GetKeyUp("space")|| Release == true){
 		startGame = true;
 	}
-	if(startGame == true){
+	if(startGame == true && pauseGame == false){
 		transform.Translate(Vector3.right * speed * Time.deltaTime);
 
 	if(theObject.transform.localPosition.y == startY) {
