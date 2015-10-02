@@ -26,8 +26,8 @@ private var keyDown : boolean;
 public var rotateJumpScript : rotateJump;
 public var colour1ParentScript : colour1Parent;
 public var colour2ParentScript : colour2Parent;
-private var Touching : boolean;
-private var Release : boolean;
+private var Touching : boolean = false;
+private var Release : boolean = false;
 
 function Start () {
 	middleColour = colour1ParentScript.floorColors;
