@@ -51,7 +51,7 @@ function Start () {
 
 function Update () {
 
-	if(Input.touches.Length > 0){
+	if(Input.touches.Length > 0 && Release == false){
 		Touching = true;
 	}
 	if(Touching == true && Input.touches.Length == 0){
