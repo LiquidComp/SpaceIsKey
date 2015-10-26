@@ -10,4 +10,5 @@ function Start(){
 function OnMouseUp(){
 	menuScreen.gameObject.SetActive(true);
 	moveRightScript.pauseGame = true;
+	gameObject.SetActive(false);
 }
