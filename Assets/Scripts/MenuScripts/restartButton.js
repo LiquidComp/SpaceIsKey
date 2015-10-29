@@ -21,9 +21,7 @@ function OnMouseExit(){
 function OnMouseUp(){
 	mouseIsDown = false;
 	if(notOffScreen == true){
-		menuScreen.gameObject.SetActive(true);
-		moveRightScript.pauseGame = true;
-		gameObject.SetActive(false);
+		//sdfsdkfgjhsdjfk
 	}
 }
 

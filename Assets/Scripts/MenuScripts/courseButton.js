@@ -1,15 +1,19 @@
 ﻿#pragma strict
 
+public var courseButton : Sprite;
+public var courseButton2 : Sprite;
 private var mouseIsDown : boolean;
 private var notOffScreen : boolean;
-public var menuScreen : GameObject;
-public var moveRightScript : MoveRight;
 
-function Start(){
-	menuScreen.gameObject.SetActive(false);
+function Update(){
+	if(mouseIsDown == true){
+		GetComponent(SpriteRenderer).sprite = courseButton2;
+	}else if(mouseIsDown == false){
+		GetComponent(SpriteRenderer).sprite = courseButton;
+	}
+
 }
 
-}
 function OnMouseOver(){
 	notOffScreen = true;
 }
@@ -18,12 +22,11 @@ function OnMouseExit(){
 	notOffScreen = false;
 }
 
+
 function OnMouseUp(){
 	mouseIsDown = false;
 	if(notOffScreen == true){
-		menuScreen.gameObject.SetActive(true);
-		moveRightScript.pauseGame = true;
-		gameObject.SetActive(false);
+		//OPEN COURSE SELECT
 	}
 }
 
