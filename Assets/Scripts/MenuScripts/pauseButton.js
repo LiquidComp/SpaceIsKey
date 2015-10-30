@@ -9,7 +9,6 @@ function Start(){
 	menuScreen.gameObject.SetActive(false);
 }
 
-}
 function OnMouseOver(){
 	notOffScreen = true;
 }

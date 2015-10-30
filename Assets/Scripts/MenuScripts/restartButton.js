@@ -2,14 +2,7 @@
 
 private var mouseIsDown : boolean;
 private var notOffScreen : boolean;
-public var menuScreen : GameObject;
-public var moveRightScript : MoveRight;
 
-function Start(){
-	menuScreen.gameObject.SetActive(false);
-}
-
-}
 function OnMouseOver(){
 	notOffScreen = true;
 }
@@ -21,7 +14,7 @@ function OnMouseExit(){
 function OnMouseUp(){
 	mouseIsDown = false;
 	if(notOffScreen == true){
-		//sdfsdkfgjhsdjfk
+		Application.LoadLevel(Application.loadedLevel);
 	}
 }
 
