@@ -1,7 +1,7 @@
 ﻿#pragma strict
 
-public var rateUsButton : Sprite;
-public var rateUsButton2 : Sprite;
+public var exitButton : Sprite;
+public var exitButton2 : Sprite;
 private var mouseIsDown : boolean;
 private var notOffScreen : boolean;
 
@@ -15,9 +15,9 @@ public var settingsMenu : GameObject;
 
 function Update(){
 	if(mouseIsDown == true){
-		GetComponent(SpriteRenderer).sprite = rateUsButton2;
+		GetComponent(SpriteRenderer).sprite = exitButton2;
 	}else if(mouseIsDown == false){
-		GetComponent(SpriteRenderer).sprite = rateUsButton;
+		GetComponent(SpriteRenderer).sprite = exitButton;
 	}
 
 }
@@ -34,14 +34,14 @@ function OnMouseExit(){
 function OnMouseUp(){
 	mouseIsDown = false;
 	if(notOffScreen == true){
-		gameObject1.gameObject.SetActive(false);
-		gameObject2.gameObject.SetActive(false);
-		gameObject3.gameObject.SetActive(false);
-		gameObject4.gameObject.SetActive(false);
-		gameObject5.gameObject.SetActive(false);
-		gameObject6.gameObject.SetActive(false);
+		gameObject1.gameObject.SetActive(true);
+		gameObject2.gameObject.SetActive(true);
+		gameObject3.gameObject.SetActive(true);
+		gameObject4.gameObject.SetActive(true);
+		gameObject5.gameObject.SetActive(true);
+		gameObject6.gameObject.SetActive(true);
 		
-		settingsMenu.gameObject.SetActive(true);
+		settingsMenu.gameObject.SetActive(false);
 	}
 }
 
