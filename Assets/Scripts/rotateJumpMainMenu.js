@@ -19,6 +19,9 @@ function Start () {
 
 function Update () {
 	test = player.GetComponent.<Rigidbody2D>().mass;
+	if(test == 0.0001){
+		startY = 2.08;
+	}
 	if(test == 1){
 		startY = -1.44;
 		rot3 = true;

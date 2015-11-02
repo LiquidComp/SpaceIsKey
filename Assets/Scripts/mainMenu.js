@@ -111,7 +111,13 @@ function OnCollisionEnter2D(coll: Collision2D) {
 		 GetComponent.<Rigidbody2D>().mass = 2;
 	}
 		if (coll.gameObject.tag == "Finish3"){
-		Application.LoadLevel("mainMenu");
+		startY = 2.08;
+		startX = -8.6;
+		transform.localPosition.x = startX;
+		transform.localPosition.y = startY;
+		transform.localRotation.z = 0;
+		GetComponent.<Rigidbody2D>().mass = 0;
+		
 	}
 	
 	if (coll.gameObject.tag == "obstacle"){
