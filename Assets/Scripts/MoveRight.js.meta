@@ -1,10 +1,18 @@
 fileFormatVersion: 2
 guid: ba3b369b28339e04eb5a4f4c70af259b
-timeCreated: 1443725328
+timeCreated: 1446454495
 licenseType: Free
 MonoImporter:
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - theObject: {instanceID: 0}
+  - text1: {instanceID: 0}
+  - text2: {instanceID: 0}
+  - text3: {instanceID: 0}
+  - rotateJumpScript: {instanceID: 0}
+  - colour1ParentScript: {instanceID: 0}
+  - colour2ParentScript: {instanceID: 0}
+  - skin: {fileID: 11400000, guid: ebfab0d9840cfd84bb55534b6f74f4cf, type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
