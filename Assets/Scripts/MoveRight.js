@@ -28,6 +28,7 @@ public var colour1ParentScript : colour1Parent;
 public var colour2ParentScript : colour2Parent;
 private var Touching : boolean = false;
 private var Release : boolean = false;
+public var skin : GUISkin;
 
 function Start () {
 	middleColour = colour1ParentScript.floorColors;
@@ -171,8 +172,9 @@ function checkCollision() {
 
 
 function OnGUI () {
+	  GUI.skin = skin;
 	  GUI.Label(Rect(10,10,100,200),"<size=20>" + Deaths + "</size>",style2);
 	  if(startGame == false){
-	  	GUI.Label(Rect(Screen.width/2-215, Screen.height/2-25, 250, 500),"<size=40>Touch the screen to start</size>",style);
+	  	GUI.Label(Rect(Screen.width/2-275, Screen.height/2-25, 250, 500),"<size=30>Touch the screen to start</size>",style);
 	  }
 }

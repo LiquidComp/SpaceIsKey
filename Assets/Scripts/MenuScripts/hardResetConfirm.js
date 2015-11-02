@@ -10,7 +10,7 @@ function OnGUI(){
 if(hardResetIsPressed == true){
    GUI.skin = skin;
    //GUI.Box(new Rect(0,0,Screen.width,Screen.height),"Clear progress");
-   GUI.Label(new Rect(Screen.width*1/4,Screen.height*2/6,Screen.width*2/4,Screen.height*1/6), "Do you want to reset ALL progress?");
+   GUI.Label(new Rect(Screen.width*1/4,Screen.height*2/7,Screen.width*2/2,Screen.height*1/3), "Do you want to reset ALL progress?");
 if(GUI.Button(Rect(Screen.width/4,Screen.height*3/8,Screen.width/2,Screen.height/8),"Yes"))
           {
           		PlayerPrefs.DeleteAll();
