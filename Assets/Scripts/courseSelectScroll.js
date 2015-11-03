@@ -74,6 +74,15 @@
 				currentCourseCount = 1;
 			}
 		}else if(left == true || Input.GetKeyUp(KeyCode.LeftArrow)){
-				cameraObject.gameObject.transform.position.x = Mathf.Lerp(transform.position.x, oldX + 17.8, 1);
+			if (currentCourseCount <= 1) {
+				cameraObject.gameObject.transform.position.x = Mathf.Lerp(transform.position.x, (courseCount - 1) * 17.8, 1);
+				oldX = (courseCount - 1) * 17.8;
+				currentCourseCount = courseCount;
+			}else{
+				cameraObject.gameObject.transform.position.x = Mathf.Lerp(transform.position.x, oldX - 17.8, 1);
+				oldX -= 17.8;
+				currentCourseCount -= 1;
+			}
+	
 		}
 	}
