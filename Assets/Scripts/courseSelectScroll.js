@@ -65,21 +65,21 @@
 		
 		if (right == true || Input.GetKeyUp(KeyCode.RightArrow)){
 			if (currentCourseCount < courseCount){
-				cameraObject.gameObject.transform.position.x = Mathf.Lerp(transform.position.x, oldX + 17.8, 1);
+				transform.position.x = Mathf.Lerp(transform.position.x, oldX + 17.8, 1);
 				oldX += 17.8;
 				currentCourseCount += 1;
 			}else{
-				cameraObject.gameObject.transform.position.x = Mathf.Lerp(transform.position.x, 0, 1);
+				transform.position.x = Mathf.Lerp(transform.position.x, 0, 1);
 				oldX = 0;
 				currentCourseCount = 1;
 			}
 		}else if(left == true || Input.GetKeyUp(KeyCode.LeftArrow)){
 			if (currentCourseCount <= 1) {
-				cameraObject.gameObject.transform.position.x = Mathf.Lerp(transform.position.x, (courseCount - 1) * 17.8, 1);
+				transform.position.x = Mathf.Lerp(transform.position.x, (courseCount - 1) * 17.8, 1);
 				oldX = (courseCount - 1) * 17.8;
 				currentCourseCount = courseCount;
 			}else{
-				cameraObject.gameObject.transform.position.x = Mathf.Lerp(transform.position.x, oldX - 17.8, 1);
+				transform.position.x = Mathf.Lerp(transform.position.x, oldX - 17.8, 1);
 				oldX -= 17.8;
 				currentCourseCount -= 1;
 			}
