@@ -27,15 +27,23 @@ public class testScroll : MonoBehaviour {
 					if (Mathf.Abs (delta.x) > Mathf.Abs (delta.y)) {
 						if (delta.x > 0) {
 							Debug.Log ("Swipe Right Found");
+							Vector3 temp = new Vector3(1.0f,0,0);
+							transform.position += temp;
 						} else {
 							Debug.Log ("Swipe Left Found");
+							Vector3 temp = new Vector3(-1.0f,0,0);
+							transform.position += temp;
 						}
 					} 
 					else {
 						if (delta.y > 0) {
 							Debug.Log ("Swipe Up Found");
+							Vector3 temp = new Vector3(0,1.0f,0);
+							transform.position += temp;
 						} else {
 							Debug.Log ("Swipe Down Found");
+							Vector3 temp = new Vector3(0,-1.0f,0);
+							transform.position += temp;
 						}
 					}
 				} else if (T.phase == TouchPhase.Canceled || T.phase == TouchPhase.Ended)
