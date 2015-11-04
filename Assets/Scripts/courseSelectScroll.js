@@ -63,7 +63,7 @@
 			} 
 		}
 		
-		if (right == true || Input.GetKeyUp(KeyCode.RightArrow)){
+		if (left == true || Input.GetKeyUp(KeyCode.LeftArrow)){
 			if (currentCourseCount < courseCount){
 				transform.position.x = Mathf.Lerp(transform.position.x, oldX + 17.8, 1);
 				oldX += 17.8;
@@ -73,7 +73,7 @@
 				oldX = 0;
 				currentCourseCount = 1;
 			}
-		}else if(left == true || Input.GetKeyUp(KeyCode.LeftArrow)){
+		}else if(right == true || Input.GetKeyUp(KeyCode.RightArrow)){
 			if (currentCourseCount <= 1) {
 				transform.position.x = Mathf.Lerp(transform.position.x, (courseCount - 1) * 17.8, 1);
 				oldX = (courseCount - 1) * 17.8;
