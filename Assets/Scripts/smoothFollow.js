@@ -7,5 +7,5 @@ function Start () {
 }
 
 function Update () {
-transform.position.x = Mathf.Lerp( transform.position.x, center.transform.position.x + xOffset, Time.deltaTime * smoothTime);
+	transform.position.x = Mathf.Lerp( transform.position.x, center.transform.position.x + xOffset, Time.deltaTime * smoothTime);
 }
