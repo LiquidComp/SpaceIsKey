@@ -29,8 +29,11 @@ public var colour2ParentScript : colour2Parent;
 private var Touching : boolean = false;
 private var Release : boolean = false;
 public var skin : GUISkin;
+public var jumpHeight : float;
 
 function Start () {
+	Debug.Log(-(Mathf.Round(((Mathf.Sqrt(jumpHeight))*1000))/1000));
+	jumpHeight = Mathf.Pow(jumpHeight,2);
 	middleColour = colour1ParentScript.floorColors;
 	bottomAndTopColour = colour2ParentScript.floorColors;
 	text1.SetActive(false);
@@ -85,7 +88,7 @@ function Update () {
 	}
 	
 	if(keyDown == true){
-		 theObject.transform.localPosition.y = startY+0.5*-Mathf.Pow(x,  Mathf.Sqrt(4)) +  2;
+		 theObject.transform.localPosition.y = startY+0.5*-Mathf.Pow(x,  (Mathf.Round(((Mathf.Sqrt(jumpHeight))*1000))/1000)) +  Mathf.Round(((Mathf.Sqrt(jumpHeight))*1000))/1000;
 	}
 	
 	}
@@ -96,7 +99,7 @@ function LateUpdate(){
 	if(done == true && theObject.transform.localPosition.y <= startY){
 		go = false;
 		done = false;
-		x = -2.0;
+		x = -(Mathf.Round(((Mathf.Sqrt(jumpHeight))*1000))/1000);
 		theObject.transform.localPosition.y = startY;
 	}
 }
